@@ -3,13 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>My New Post | CalvinNing&#39;s Blog</title>
+  <title>透明状态栏 | CalvinNing&#39;s Blog</title>
   <meta name="author" content="CalvinNing">
+  
+  <meta name="description" content="###这四篇挺好###
+
+由沉浸式状态栏引发的血案Android开发：Translucent System Bar 的最佳实践Android 系统状态栏沉浸式/透明化完整解决方案薄荷Toolbar(ActionBar)的适配方案
+
+###这个小伙很不错###fanKarl/TranslucentBa">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="My New Post"/>
+  <meta property="og:title" content="透明状态栏"/>
   <meta property="og:site_name" content="CalvinNing&#39;s Blog"/>
 
   
@@ -53,13 +59,42 @@
       
       
   
-    <h1 class="title">My New Post</h1>
+    <h1 class="title">透明状态栏</h1>
   
 
     </header>
     <div class="entry">
       
-        
+        <p>###这四篇挺好###</p>
+<hr>
+<p><a href="http://www.jianshu.com/p/140be70b84cd" target="_blank" rel="external">由沉浸式状态栏引发的血案</a><br><a href="http://www.jianshu.com/p/0acc12c29c1b" target="_blank" rel="external">Android开发：Translucent System Bar 的最佳实践</a><br><a href="http://www.jianshu.com/p/34a8b40b9308" target="_blank" rel="external">Android 系统状态栏沉浸式/透明化完整解决方案</a><br><a href="http://stormzhang.com/android/2015/08/16/boohee-toolbar/" target="_blank" rel="external">薄荷Toolbar(ActionBar)的适配方案</a></p>
+<hr>
+<p>###这个小伙很不错###<br><a href="https://github.com/fanKarl" target="_blank" rel="external">fanKarl</a>/<strong><a href="https://github.com/fanKarl/TranslucentBars" target="_blank" rel="external">TranslucentBars</a></strong></p>
+<hr>
+<p>我写了个小demo，为了方便以后自己复用的，地址<a href="https://github.com/CalvinNing/TranslucentBar_demo" target="_blank" rel="external">戳戳看</a></p>
+<hr>
+<ul>
+<li><p><strong>方法一（代码实现）</strong>： 以下这段代码的作用是：在4.4以上状态栏透明、允许AppBarLayout布局扩展至状态栏</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * 配置状态栏</div><div class="line"> */</div><div class="line">private void setTransparentBar() &#123;</div><div class="line">    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</div><div class="line">        getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</div><div class="line">        getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);</div><div class="line">    &#125;</div><div class="line">    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.LOLLIPOP) &#123;</div><div class="line">        Window window = getWindow();</div><div class="line">        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);</div><div class="line">        window.getDecorView().setSystemUiVisibility(</div><div class="line">                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);</div><div class="line">        window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);</div><div class="line">        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);</div><div class="line">        window.setStatusBarColor(Color.TRANSPARENT);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>方法二（xml中配置）</strong>： 在values-v19下styles.xml文件中添加如下代码——<strong>AppBarLayout的内容布局就可以扩展至系统状态栏,状态栏会覆盖在toolbar上</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;resources&gt;</div><div class="line">    &lt;style name=&quot;AppTheme&quot; parent=&quot;@style/AppBaseTheme&quot;&gt;</div><div class="line">        &lt;item name=&quot;android:windowTranslucentStatus&quot;&gt;true&lt;/item&gt;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###方法二会这样↓↓↓↓↓↓，so……还是用方法一吧，其实我是全都写上的，即代码实现+xml配置###</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1811364-bd2c9c16096ac343.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>###AppBarLayout背景颜色设置,后面布局中修改Background会覆盖主题中的colorPrimary###</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1811364-6ba58d15d18110bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1811364-9ebbc3073bf1a741.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<p>###给Toolbar设置android:layout_marginTop###<br>在values, values-v19两个文件夹下分别声明toolbar_margin_top变量，values文件夹下值为0dp，而values-v19文件夹下值为25dp.</p>
+<p>###效果图###</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1811364-f221795b95438917.gif?imageMogr2/auto-orient/strip" alt="效果图.gif"></p>
+<p>###再啰嗦一句###<br>在这个方法中，经测试发现<strong>fitSystemWindow=“true”</strong>不起作用</p>
+<p>###第二天……###<br>第二天，我觉得昨天的还是有瑕疵，我记得我上次弄透明状态栏<strong>fitSystemWindow=“true”</strong>就起作用了啊，经过一番，最后算是弄明白了，原因是我代码实现的多了这么一句<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/** Window flag: allow window to extend outside of the screen. */</div><div class="line">public static final int FLAG_LAYOUT_NO_LIMITS   = 0x00000200;</div></pre></td></tr></table></figure>
+<p>然后我去掉了上面这一句，布局中也去掉了Toolbar的<br>android:layout_marginTop=”@dimen/toolbar_margin_top”，<br>并且给AppBarLayout加上<strong>fitSystemWindow=“true”</strong>，但是4.4好用，5.1就不行了，真是众口难调啊，所以还是按照之前的方法来，毕竟我们不需要知道茴香豆的“茴”字有几种写法，只需要掌握一种确实好用的。</p>
+<p>###总结###<br>两步走：<br>1、上述代码实现的方法，一般写在BaseActivity中<br>2、在各自的布局中，需要浸入状态栏的view——肯定是位于整个布局最上端了（这就是句废话了）——设置内边距或者外边距了。</p>
+
       
     </div>
     <footer>
