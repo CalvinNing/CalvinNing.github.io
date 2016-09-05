@@ -1514,17 +1514,17 @@ pre .javascript .function {
 .feed-link a {
   display: inline-block;
   padding: 0 15px;
-  color: #fc6423;
-  border: 1px solid #fc6423;
+  color: #48cc50;
+  border: 1px solid #48cc50;
   border-radius: 4px;
 }
 .feed-link a i {
-  color: #fc6423;
+  color: #48cc50;
   font-size: 14px;
 }
 .feed-link a:hover {
   color: #fff;
-  background: #fc6423;
+  background: #48cc50;
 }
 .feed-link a:hover i {
   color: #fff;
@@ -1548,7 +1548,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e911ff;
+  background: #0993ac;
 }
 .links-of-blogroll {
   font-size: 13px;
