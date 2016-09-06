@@ -90,15 +90,15 @@
 <meta property="og:url" content="http://calvinning.github.io/2016/09/01/透明状态栏/index.html">
 <meta property="og:site_name" content="CalvinNing's Blog">
 <meta property="og:description" content="这四篇挺好由沉浸式状态栏引发的血案Android开发：Translucent System Bar 的最佳实践Android 系统状态栏沉浸式/透明化完整解决方案薄荷Toolbar(ActionBar)的适配方案">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1811364-bd2c9c16096ac343.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1811364-bd2c9c16096ac343.png">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1811364-6ba58d15d18110bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1811364-9ebbc3073bf1a741.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1811364-f221795b95438917.gif?imageMogr2/auto-orient/strip">
-<meta property="og:updated_time" content="2016-09-06T02:39:52.084Z">
+<meta property="og:updated_time" content="2016-09-06T08:21:58.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="透明状态栏">
 <meta name="twitter:description" content="这四篇挺好由沉浸式状态栏引发的血案Android开发：Translucent System Bar 的最佳实践Android 系统状态栏沉浸式/透明化完整解决方案薄荷Toolbar(ActionBar)的适配方案">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1811364-bd2c9c16096ac343.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1811364-bd2c9c16096ac343.png">
 
 
 
@@ -376,7 +376,7 @@
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;resources&gt;</div><div class="line">    &lt;style name="AppTheme" parent="@style/AppBaseTheme"&gt;</div><div class="line">        &lt;item name="android:windowTranslucentStatus"&gt;true&lt;/item&gt;</div><div class="line">    &lt;/style&gt;</div><div class="line">&lt;/resources&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="方法二会这样↓↓↓↓↓↓，so……还是用方法一吧，其实我是全都写上的，即代码实现-xml配置"><a href="#方法二会这样↓↓↓↓↓↓，so……还是用方法一吧，其实我是全都写上的，即代码实现-xml配置" class="headerlink" title="方法二会这样↓↓↓↓↓↓，so……还是用方法一吧，其实我是全都写上的，即代码实现+xml配置"></a><strong>方法二会这样↓↓↓↓↓↓，so……还是用方法一吧，其实我是全都写上的，即代码实现+xml配置</strong></h3><p><img src="http://upload-images.jianshu.io/upload_images/1811364-bd2c9c16096ac343.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
+<h3 id="方法二会这样↓↓↓↓↓↓，so……还是用方法一吧，其实我是全都写上的，即代码实现-xml配置"><a href="#方法二会这样↓↓↓↓↓↓，so……还是用方法一吧，其实我是全都写上的，即代码实现-xml配置" class="headerlink" title="方法二会这样↓↓↓↓↓↓，so……还是用方法一吧，其实我是全都写上的，即代码实现+xml配置"></a><strong>方法二会这样↓↓↓↓↓↓，so……还是用方法一吧，其实我是全都写上的，即代码实现+xml配置</strong></h3><p><img src="http://upload-images.jianshu.io/upload_images/1811364-bd2c9c16096ac343.png" width="80%" alt="图片名称" align="center"></p>
 <h3 id="AppBarLayout背景颜色设置-后面布局中修改Background会覆盖主题中的colorPrimary"><a href="#AppBarLayout背景颜色设置-后面布局中修改Background会覆盖主题中的colorPrimary" class="headerlink" title="AppBarLayout背景颜色设置,后面布局中修改Background会覆盖主题中的colorPrimary"></a><strong>AppBarLayout背景颜色设置,后面布局中修改Background会覆盖主题中的colorPrimary</strong></h3><p><img src="http://upload-images.jianshu.io/upload_images/1811364-6ba58d15d18110bb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
 <p><img src="http://upload-images.jianshu.io/upload_images/1811364-9ebbc3073bf1a741.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Paste_Image.png"></p>
 <h3 id="给Toolbar设置android-layout-marginTop"><a href="#给Toolbar设置android-layout-marginTop" class="headerlink" title="给Toolbar设置android:layout_marginTop"></a><strong>给Toolbar设置android:layout_marginTop</strong></h3><p>在values, values-v19两个文件夹下分别声明toolbar_margin_top变量，values文件夹下值为0dp，而values-v19文件夹下值为25dp.</p>
